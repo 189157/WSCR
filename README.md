@@ -39,7 +39,7 @@ Below we provide **complete**, runnable code blocks for both PBIS-TP53 scoring o
 ### 1) Calculation of `PBIS-TP53` in scRNA-seq data
 
 ```r
-### Calculation of pbis_scores in scRNA-seq data
+### Calculation of PBIS.TP53 in scRNA-seq data
 library(Seurat)
 library(Matrix)
 library(GSVA)
@@ -159,7 +159,7 @@ run_sc_weighted_gsva <- function(seurat_file,
   return(Enrichment_score)
 }
 
-PBIS-TP53 <- run_sc_weighted_gsva(
+PBIS.TP53 <- run_sc_weighted_gsva(
   seurat_file = "scRNA-seq.rds",
   gene_length_file = "gencode.v22.annotation.txt",
   group_rds = "filtered_gene_sets.rds",
@@ -213,7 +213,7 @@ pbis_scores <- sc_dataset@meta.data$PBIS.TP53
 epsilon <- 1e-5
 ind_weights <- 1 / (abs(pbis_scores) + epsilon)
 
-# Compute group weights based on group-wise PBIS.TP53 distributions
+# Compute group weights based on group-wise PBIS-TP53 distributions
 uniq_grp <- sort(unique(grp.vec))
 grp_weights <- numeric(length(uniq_grp))
 for (i in seq_along(uniq_grp)) {
@@ -354,7 +354,7 @@ You can apply WSCR-identified cell subsets (e.g., `WSCR_pos.txt`, `WSCR_neg.txt`
 
 ## 📚 Citation
 
-> **Weighted Sparse Cell Regularization (WSCR)**: Decoding TP53 Mutation at Single-Cell Resolution in Chinese HBV-Related Hepatocellular Carcinoma: From Microenvironment to Clinical Translation.  
+>  *Decoding TP53 Mutation at Single-Cell Resolution in Chinese HBV-Related Hepatocellular Carcinoma: From Microenvironment to Clinical Translation.*  
 > *[Lai et al., 2025]*
 
 ---
