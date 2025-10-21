@@ -36,7 +36,7 @@ devtools::install_github("jeffdaniel/asgl")
 Below we provide **complete**, runnable code blocks for both PBIS-TP53 scoring on scRNA-seq and WSCR cell identification.  
 > 💡 You can copy these sections into `.R` scripts and run them as-is after preparing your inputs.
 
-### 1) Calculation of `pbis_scores` in scRNA-seq data
+### 1) Calculation of `PBIS-TP53` in scRNA-seq data
 
 ```r
 ### Calculation of pbis_scores in scRNA-seq data
@@ -159,7 +159,7 @@ run_sc_weighted_gsva <- function(seurat_file,
   return(Enrichment_score)
 }
 
-pbis_scores <- run_sc_weighted_gsva(
+PBIS-TP53 <- run_sc_weighted_gsva(
   seurat_file = "scRNA-seq.rds",
   gene_length_file = "gencode.v22.annotation.txt",
   group_rds = "filtered_gene_sets.rds",
@@ -206,10 +206,10 @@ X <- cor(bulk_dataset[common, ], sc_exprs[common, ])
 phenotype <- read.table("phenotype.txt", header = TRUE, sep = "\t")
 y <- phenotype[, 2]
 
-# Extract PBIS.TP53 scores from metadata
+# Extract PBIS.TP53 from metadata
 pbis_scores <- sc_dataset@meta.data$PBIS.TP53
 
-# Compute individual weights (inverse proportional to PBIS score magnitude)
+# Compute individual weights (inverse proportional to PBIS-TP53 magnitude)
 epsilon <- 1e-5
 ind_weights <- 1 / (abs(pbis_scores) + epsilon)
 
@@ -354,8 +354,8 @@ You can apply WSCR-identified cell subsets (e.g., `WSCR_pos.txt`, `WSCR_neg.txt`
 
 ## 📚 Citation
 
-> **Weighted Sparse Cell Regularization (WSCR)**: A phenotype-guided sparse regularization algorithm to identify TP53 mutation–associated cellular populations and their microenvironmental interactions in HBV-related HCC.  
-> *[Author et al., 2025]*
+> **Weighted Sparse Cell Regularization (WSCR)**: Decoding TP53 Mutation at Single-Cell Resolution in Chinese HBV-Related Hepatocellular Carcinoma: From Microenvironment to Clinical Translation.  
+> *[Lai et al., 2025]*
 
 ---
 
