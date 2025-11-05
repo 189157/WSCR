@@ -354,7 +354,7 @@ You can apply WSCR-identified cell subsets (e.g., `WSCR_pos.txt`, `WSCR_neg.txt`
 
 ## 📚 Citation
 
->  *Decoding TP53 Mutation at Single-Cell Resolution in Chinese HBV-Related Hepatocellular Carcinoma: From Microenvironment to Clinical Translation.*  
+>  *A single-cell atlas of TP53-mutant programs in HBV-related hepatocellular carcinoma *  
 > *[Lai et al., 2025]*
 
 ---
